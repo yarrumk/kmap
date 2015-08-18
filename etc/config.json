@@ -1,0 +1,13 @@
+{
+    "server": {
+        "port": "8500",
+        "hostname": "0.0.0.0",
+        "devmode": true,
+        "version": "0.1.0",
+        "version_str": "JMapBox Version 0.1.0",
+        "disable_log": false
+    },
+    "cookies": {
+        "secret": "sawqegwihj35iNIOPpnuPUBNKJklsdnbrew0893EFG"
+    }
+}

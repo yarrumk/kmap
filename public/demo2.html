@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dublin Speciality Coffee</title>
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
+    <!--Using jQuery and jQuery UI for display effects-->
+    <!--script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
+    <!--script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <!--Using the hamburger menu display code-->
+    <script src="js/hamburger.js"></script>
+    <!--Using Media Queries, if the viewport is smaller than 700px use another stylesheet-->
+    <link rel="stylesheet" type="text/css" media="all" href="css/hamburger.css" />
+    <link rel="shortcut icon" href="images/Favicon.ico">
+    <!--Various webfonts I use-->
+    <link href='http://fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Cinzel:900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:700|Pacifico|Changa+One' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <!--This wrapping container is used to get the width of the whole content-->
+    <div id="container">
+        <!--The Hamburger Button in the Header-->
+        <header>
+            <div id="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </header>
+        <!--The mobile navigation Markup hidden via css-->
+        <nav>
+            <ul>
+                <li><a href="#">Search by</a></li>
+                <li><a href="#">Location</a></li>
+                <li><a href="#">Coffee</a></li>
+                <li><a href="#">Seating</a></li>
+                <li><a href="#">Rating</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+        <!--The Layer that will be layed over the content
+    so that the content is unclickable while menu is shown-->
+        <div id="contentLayer"></div>
+        <!--The content of the site-->
+        <div id="content">
+            <!-- ************************************************************************************-->
+            <!-- ************************************************************************************-->
+            <div id="map" class="map"></div>
+            
+            <!--<a href="https://github.com/ymc-thzi/mobile-menu-hamburger"><img
+                style="position: absolute; top: 51px; right: 0; border: 0;"
+                src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"
+                alt="Fork me on GitHub"></a>
+-->
+</body>
+<script type="text/javascript" src="jsstuff.js"></script>
+<script>
+            L.mapbox.accessToken = 'pk.eyJ1IjoieWFycnVtayIsImEiOiJVNVVkT2JvIn0.xja5Bz1L0dmNYUfNG3mlBw';
+            var map = L.mapbox.map('map', 'yarrumk.jg24a6oj')
+                .setView([53.3528823, -6.2349633], 12);
+
+            var myLayer = L.mapbox.featureLayer().addTo(map);
+
+
+
+
+            var geoJson = [{
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-6.2195671, 53.3509354]
+                },
+                "properties": {
+                    "title": "<a href='http://www.squaremile.co.uk' target='_blank'><img src='http://openapp.ie/images/con-hennessey' width='75' height='75'><br>Squaremile Coffee</a><br>1 Coffee Roaster Court making the popo up box appear even arger than its meant<br>Main Street<br>London<br>",
+                    "icon": {
+                        "iconUrl": "http://www.dt249.com/map/images/sq_Mile_pin.png",
+                        "iconSize": [35, 50], // size of the icon
+                        "iconAnchor": [17, 50], // point of the icon which will correspond to marker's location
+                        "popupAnchor": [0, -5], // point from which the popup should open relative to the iconAnchor
+                        "className": "dot"
+                    }
+                }
+            },
+
+            }];
+
+            // Set a custom icon on each marker based on feature properties.
+            myLayer.on('layeradd', function(e) {
+                var marker = e.layer,
+                    feature = marker.feature;
+
+                marker.setIcon(L.icon(feature.properties.icon));
+            });
+
+            // Add features to the map.
+            myLayer.setGeoJSON(geoJson);
+            </script>
+</html>

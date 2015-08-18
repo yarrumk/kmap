@@ -1,0 +1,16 @@
+[
+    {
+        "name": "jmapbox",
+        "cwd": "/home/hai/jmapbox",
+        "script": "bin/runserver",
+        "instances": "6",
+        "error_file": "logs/jmapbox-err.log",
+        "out_file": "logs/jmapbox-out.log",
+        "pid_file": "pid/jmapbox.pid",
+        "exec_mode": "cluster_mode",
+        "port": 8200,
+        "run_as_user": "hai",
+        "run_as_group": "hai"
+    }
+]
+

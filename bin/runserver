@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+var app = require('../app');
+var config = require(__dirname + '/../etc/config.json');
+
+app.set('port', config.server.port || 3000);
+
+var server = app.listen(app.get('port'), function() {
+    console.log( '---\n');
+    console.log( config.server.version_str + ' listening on port ' + server.address().port);
+    if(config.server.devmode){
+        console.log( 'Running in Development mode.\n');
+        console.log( '---');
+    }
+});

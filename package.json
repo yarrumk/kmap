@@ -1,0 +1,56 @@
+{
+  "name": "jmap-box",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Nigel Hanlon <nigel.hanlon@openapp.ie>",
+  "description": "JMapBox - A MBTile server for JMap",
+  "contributors": [
+    {
+        "name": "Nigel Hanlon",
+        "email": "nigel.hanlon@openapp.ie"
+    },
+    {
+        "name": "Rob Matthews",
+        "email": "rob@openapp.ie"
+    },
+    {
+        "name": "Keith OMuiri",
+        "email": "keith.omuiri@openapp.ie"
+    }
+  ],
+  "scripts": {
+    "start": "node ./bin/runserver",
+    "test" : "./node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha test/test.js"
+  },
+  "keywords": [
+    "maps",
+    "mbtile",
+    "feature",
+    "gis",
+    "vector",
+    "mapbox"
+  ],
+  "dependencies": {
+    "express": "~4.x",
+    "debug": "*",
+    "cookie-parser": "*",
+    "body-parser": "*",
+    "cookie-session": "*",
+    "compression": "*",
+    "mustachex": "*",
+    "response-time":"*",
+    "morgan":"*",
+    "cors": "*",
+    "sqlite3": "*",
+    "mbtiles": "*",
+    "ioredis": "*",
+    "node-dir": "*"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "assert": "*",
+    "should": "*",
+    "supertest": "*",
+    "istanbul": "*"
+  }
+}
